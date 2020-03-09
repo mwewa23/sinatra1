@@ -8,40 +8,40 @@ get "/set" do
     session[:message]
   end
 
-get '/getdoc' do
-   "<!DOCTYPE html>
-  <html>
-  <head>
-  <style>
-   li { 
-       color: red; 
-   }
-  </style>
-  </head>
- <body>
- <h1>How to be a Supportive Friend</h1>
-  <ul>
-  <li>Check in consistantly</li>
-  <li>Avoid leading questions</li>
-  <li>Use reflective listening</li>
-  </ul>
-  <h4>Let us know if you need some extra coaching on that</h4>
-  </body>
-  </html>"
+# get '/getdoc' do
+#   "<!DOCTYPE html>
+#   <html>
+#   <head>
+#   <style>
+#   li { 
+#       color: red; 
+#   }
+#   </style>
+#   </head>
+#  <body>
+#  <h1>How to be a Supportive Friend</h1>
+#   <ul>
+#   <li>Check in consistantly</li>
+#   <li>Avoid leading questions</li>
+#   <li>Use reflective listening</li>
+#   </ul>
+#   <h4>Let us know if you need some extra coaching on that</h4>
+#   </body>
+#   </html>"
 
-end
+# end
 
 
-get '/post_it' do
-   "<html><head></head><body>
-<form action='/submitted' method='POST'>
-    Message:
-    <input type='text' name='message'>
-    <input type='submit' value='Send'>
-  </form>
-</body>
-</html>"
-end
+# get '/post_it' do
+#   "<html><head></head><body>
+# <form action='/submitted' method='POST'>
+#     Message:
+#     <input type='text' name='message'>
+#     <input type='submit' value='Send'>
+#   </form>
+# </body>
+# </html>"
+# end
 post "/submitted" do
     "<h1>Form Submitted</h1>"
   end
@@ -85,4 +85,13 @@ end
 
 get "/greet" do
     "Hello #{session[:name]}"
+end
+
+get "/howmany" do
+    erb :howmany
+end
+
+post "/candles" do
+    @candles = params[:candles]
+    erb :candles
 end
